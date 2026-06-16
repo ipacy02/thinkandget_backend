@@ -1,4 +1,4 @@
-package com.api.tests;
+package com.api.tests.authentication;
 
 import com.api.constants.ExpectedMessages;
 import com.api.constants.HttpStatus;
