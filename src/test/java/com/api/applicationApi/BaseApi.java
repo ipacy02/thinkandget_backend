@@ -30,7 +30,7 @@ public class BaseApi {
                 .response();
     }
 
-    // NEW OVERLOADED METHOD: Allows passing headers to secure GET endpoints cleanly
+    // Allows passing headers to secure GET endpoints cleanly
     public static Response get(String endpoint, Map<String, String> headers) {
         return given()
                 .spec(SpecBuilder.getRequestSpec())

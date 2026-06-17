@@ -36,7 +36,6 @@ public class AuthPayloads {
         return payload;
     }
 
-    // Add this method to your existing com.api.payloads.AuthPayloads class
     public static Map<String, Object> getRefreshPayload(String refreshToken) {
         Map<String, Object> payload = new HashMap<>();
         payload.put("refreshToken", refreshToken);

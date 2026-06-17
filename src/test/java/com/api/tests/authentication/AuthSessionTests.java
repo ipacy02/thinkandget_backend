@@ -26,7 +26,6 @@ public class AuthSessionTests {
         Response response = AuthApi.login(loginPayload);
         response.then().statusCode(HttpStatus.OK);
 
-        // Extract both tokens from the response structure
         loginAccessToken = response.jsonPath().getString("data.token");
         loginRefreshToken = response.jsonPath().getString("data.refreshToken");
 
@@ -35,35 +34,28 @@ public class AuthSessionTests {
 
     @Test(priority = 1)
     public void shouldRetrieveCurrentUserProfileSuccessfully() {
-        // Run the GET endpoint checking credentials state
         Response response = AuthApi.getCurrentUser(loginAccessToken);
         response.then().log().ifValidationFails();
 
-        // Expecting 200 OK
         response.then().statusCode(HttpStatus.OK);
         Assert.assertTrue(response.jsonPath().getBoolean(ExpectedMessages.KEY_SUCCESS));
 
-        // Asserting specific key matches the account we authenticated with
         Assert.assertEquals(response.jsonPath().getString("data.user.email"), TestData.STATIC_EMAIL);
         System.out.println(ExpectedMessages.LOG_GET_ME_SUCCESS);
     }
 
     @Test(priority = 2)
     public void shouldRefreshAccessTokenSuccessfully() {
-        // Assert we have a valid refresh token string before execution
-        Assert.assertNotNull(loginRefreshToken, "Refresh token from initial authentication is missing!");
 
-        // Build request payload map block
+        Assert.assertNotNull(loginRefreshToken, "Refresh token from initial authentication is missing!");
         Map<String, Object> refreshPayload = AuthPayloads.getRefreshPayload(loginRefreshToken);
 
         Response response = AuthApi.refreshAccessToken(refreshPayload);
         response.then().log().ifValidationFails();
 
-        // Expecting 200 OK for a valid token generation swap
         response.then().statusCode(HttpStatus.OK);
         Assert.assertTrue(response.jsonPath().getBoolean(ExpectedMessages.KEY_SUCCESS));
 
-        // Pull out your fresh dynamic system token
         String brandNewAccessToken = response.jsonPath().getString(ExpectedMessages.KEY_TOKEN);
         Assert.assertNotNull(brandNewAccessToken, "Swapped renewal access token was returned null!");
 

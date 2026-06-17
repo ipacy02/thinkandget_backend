@@ -26,7 +26,6 @@ public class AuthApi extends BaseApi {
         return post("/auth/reset-password/" + token, requestBody);
     }
 
-    // UPDATED METHOD: Leverages BaseApi logic safely
     public static Response getCurrentUser(String accessToken) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", "Bearer " + accessToken);
