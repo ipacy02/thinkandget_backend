@@ -1,0 +1,36 @@
+package utils;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.filter.log.LogDetail;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+
+public class SpecBuilder {
+
+    public static RequestSpecification getRequestSpec() {
+        return new RequestSpecBuilder()
+                .setBaseUri(ConfigLoader.getInstance().getBaseUrl())
+                .setBasePath(ConfigLoader.getInstance().getBasePath())
+                .setContentType(ContentType.JSON)
+                .log(LogDetail.ALL)
+                .build();
+    }
+
+    // Custom specification that skips content type overriding for multipart streams
+    public static RequestSpecification getMultipartRequestSpec() {
+        return new RequestSpecBuilder()
+                .setBaseUri(ConfigLoader.getInstance().getBaseUrl())
+                .setBasePath(ConfigLoader.getInstance().getBasePath())
+                .log(LogDetail.ALL)
+                .build();
+    }
+
+    public static ResponseSpecification getResponseSpec() {
+        return new ResponseSpecBuilder()
+                .expectContentType(ContentType.JSON)
+                .log(LogDetail.ALL)
+                .build();
+    }
+}
