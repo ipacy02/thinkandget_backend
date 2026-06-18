@@ -27,4 +27,18 @@ public class ExpectedMessages {
     public static final String ERR_TOKEN_NULL = "Reset token extraction from response body payload failed!";
     public static final String ERR_LOGIN_TOKEN_NULL = "Login token extraction from data.token failed!";
     public static final String ERR_RESET_TOKEN_NULL = "Reset token extraction from response body payload failed!";
+
+
+    // APPENDED FOR USERS MODULE (Leaves everything above completely untouched)
+
+    public static final String KEY_USER_FIRSTNAME = "data.firstName";
+    public static final String KEY_USER_AVATAR = "data.avatar";
+    public static final String KEY_ADDRESS_DATA = "data";
+
+    public static final String LOG_PROFILE_UPDATE_SUCCESS = ">>> SUCCESS: Profile information updated smoothly without errors.";
+    public static final String LOG_ADDRESS_WORKFLOW_SUCCESS = ">>> SUCCESS: Address entry added and list verified successfully.";
+    public static final String LOG_AVATAR_UPLOAD_SUCCESS = ">>> SUCCESS: User avatar image uploaded to server database storage.";
+    public static final String LOG_PASSWORD_CHANGE_SUCCESS = ">>> SUCCESS: Active account profile password updated securely.";
+    public static final String ERR_PROFILE_UPDATE_FAILED = "Profile update failed: Expected names do not match!";
+    public static final String ERR_ADDRESS_EMPTY = "Address collection is null or failed to return records!";
 }
