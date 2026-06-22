@@ -6,8 +6,6 @@ import utils.SpecBuilder;
 import static io.restassured.RestAssured.given;
 
 public class BaseApi {
-
-    // Standard public JSON POST
     public static Response post(String endpoint, Map<String, Object> requestBody) {
         return given()
                 .spec(SpecBuilder.getRequestSpec())
@@ -20,7 +18,6 @@ public class BaseApi {
                 .response();
     }
 
-    // Authenticated JSON POST (e.g., /users/addresses)
     public static Response post(String endpoint, Map<String, String> headers, Map<String, Object> requestBody) {
         return given()
                 .spec(SpecBuilder.getRequestSpec())
@@ -34,7 +31,6 @@ public class BaseApi {
                 .response();
     }
 
-    // Authenticated Multipart Form-Data POST (Optimized for file uploads)
     public static Response post(String endpoint, Map<String, String> headers, String controlName, java.io.File file) {
         return given()
                 .spec(SpecBuilder.getMultipartRequestSpec())
@@ -49,7 +45,6 @@ public class BaseApi {
                 .response();
     }
 
-    // Public GET
     public static Response get(String endpoint) {
         return given()
                 .spec(SpecBuilder.getRequestSpec())
@@ -61,7 +56,6 @@ public class BaseApi {
                 .response();
     }
 
-    // Authenticated GET (e.g., /users/addresses, /auth/me)
     public static Response get(String endpoint, Map<String, String> headers) {
         return given()
                 .spec(SpecBuilder.getRequestSpec())
@@ -74,7 +68,6 @@ public class BaseApi {
                 .response();
     }
 
-    // Public PUT
     public static Response put(String endpoint, Map<String, Object> requestBody) {
         return given()
                 .spec(SpecBuilder.getRequestSpec())
@@ -87,7 +80,6 @@ public class BaseApi {
                 .response();
     }
 
-    // Authenticated PUT (e.g., /users/profile, /users/change-password)
     public static Response put(String endpoint, Map<String, String> headers, Map<String, Object> requestBody) {
         return given()
                 .spec(SpecBuilder.getRequestSpec())

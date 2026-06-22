@@ -6,7 +6,7 @@ public class ExpectedMessages {
     public static final String KEY_SUCCESS = "success";
     public static final String KEY_MESSAGE = "message";
     public static final String KEY_TOKEN = "data.token";
-    public static final String KEY_REFRESH_TOKEN = "refreshToken"; // Key for refresh payload
+    public static final String KEY_REFRESH_TOKEN = "refreshToken";
 
     // Expected Text Contents for Responses
     public static final String REGISTRATION_SUCCESS = "Registration successful. Check your email to verify.";
@@ -29,16 +29,13 @@ public class ExpectedMessages {
     public static final String ERR_RESET_TOKEN_NULL = "Reset token extraction from response body payload failed!";
 
 
-    // =========================================================================
-    // APPENDED FOR USERS MODULE (Leaves everything above completely untouched)
-    // =========================================================================
-
+    // USERS MODULE
     public static final String KEY_USER_FIRSTNAME = "data.firstName";
     public static final String KEY_USER_AVATAR = "data.avatar";
     public static final String KEY_ADDRESS_DATA = "data";
 
     public static final String KEY_CATEGORY_ID = "data.id";
-    public static final String KEY_CATEGORY_NAME = "data.name"; // Added to support your TestNG name validation assertion
+    public static final String KEY_CATEGORY_NAME = "data.name";
 
     public static final String LOG_PROFILE_UPDATE_SUCCESS = ">>> SUCCESS: Profile information updated smoothly without errors.";
     public static final String LOG_ADDRESS_WORKFLOW_SUCCESS = ">>> SUCCESS: Address entry added and list verified successfully.";
