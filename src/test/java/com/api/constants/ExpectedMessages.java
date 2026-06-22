@@ -29,11 +29,16 @@ public class ExpectedMessages {
     public static final String ERR_RESET_TOKEN_NULL = "Reset token extraction from response body payload failed!";
 
 
+    // =========================================================================
     // APPENDED FOR USERS MODULE (Leaves everything above completely untouched)
+    // =========================================================================
 
     public static final String KEY_USER_FIRSTNAME = "data.firstName";
     public static final String KEY_USER_AVATAR = "data.avatar";
     public static final String KEY_ADDRESS_DATA = "data";
+
+    public static final String KEY_CATEGORY_ID = "data.id";
+    public static final String KEY_CATEGORY_NAME = "data.name"; // Added to support your TestNG name validation assertion
 
     public static final String LOG_PROFILE_UPDATE_SUCCESS = ">>> SUCCESS: Profile information updated smoothly without errors.";
     public static final String LOG_ADDRESS_WORKFLOW_SUCCESS = ">>> SUCCESS: Address entry added and list verified successfully.";
@@ -41,4 +46,8 @@ public class ExpectedMessages {
     public static final String LOG_PASSWORD_CHANGE_SUCCESS = ">>> SUCCESS: Active account profile password updated securely.";
     public static final String ERR_PROFILE_UPDATE_FAILED = "Profile update failed: Expected names do not match!";
     public static final String ERR_ADDRESS_EMPTY = "Address collection is null or failed to return records!";
+
+    public static final String LOG_CATEGORY_WORKFLOW_SUCCESS = ">>> SUCCESS: Category lifecycle workflow verified completely.";
+    public static final String ERR_CATEGORY_ID_NULL = "Category Creation Failed: Returned ID is null!";
+    public static final String ERR_CATEGORY_NAME_MISMATCH = "Category GET Assertion Failed: Names do not match!";
 }
